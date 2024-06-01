@@ -8,5 +8,14 @@ import { IProductEntity } from "../../DataBases/interfaces.db";
 @Controller('products')
 export class ProductsController {
     constructor(private service: ProductsService) {}
-    
+    @Post()
+    async createProduct(@Body() product: DeepPartial<ProductEntity>): Promise<IProductEntity>{
+        return await this.service.createProduct(product);
+    }
+
+    @Get()
+    async findProducts(): Promise<ProductEntity[]>{
+        return await this.service.findProducts();
+    }
+
 }
