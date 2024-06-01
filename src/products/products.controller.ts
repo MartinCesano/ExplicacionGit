@@ -8,6 +8,7 @@ import { IProductEntity } from "../../DataBases/interfaces.db";
 @Controller('products')
 export class ProductsController {
     constructor(private service: ProductsService) {}
+
     @Post()
     async createProduct(@Body() product: DeepPartial<ProductEntity>): Promise<IProductEntity>{
         return await this.service.createProduct(product);
@@ -26,4 +27,5 @@ export class ProductsController {
     async updateProductById(@Param('id') id: number, @Body() bodyUpdateProduct: Partial<ProductEntity>): Promise<IProductEntity>{
         return await this.service.updateProductById(id, bodyUpdateProduct);
     }
+
 }
