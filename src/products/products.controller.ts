@@ -19,7 +19,7 @@ export class ProductsController {
         return await this.service.findProducts();
     }
 
-    @Get(':codigo')
+    @Get(':id')
     async findProductById(@Param('id') id: number): Promise<IProductEntity>{
         return await this.service.findProductById(id);
     }
